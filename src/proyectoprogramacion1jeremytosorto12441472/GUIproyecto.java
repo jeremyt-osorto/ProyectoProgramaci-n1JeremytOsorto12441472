@@ -5,6 +5,7 @@
 package proyectoprogramacion1jeremytosorto12441472;
 
 import javax.swing.JOptionPane;
+import proyectoprogramacion1jeremytosorto12441472.ProyectoProgramacion1JeremytOsorto12441472;
 
 /**
  *
@@ -14,6 +15,8 @@ public class GUIproyecto extends javax.swing.JFrame {
     /**
      * Creates new form GUIproyecto
      */
+    
+    static ProyectoProgramacion1JeremytOsorto12441472 proy=new ProyectoProgramacion1JeremytOsorto12441472();
     public GUIproyecto() {
         initComponents();
         Panel.setVisible(false);
@@ -29,26 +32,58 @@ public class GUIproyecto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PanelPrincipal = new javax.swing.JPanel();
+        button1 = new java.awt.Button();
+        Txt4 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         Panel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         Txt1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         label2 = new java.awt.Label();
         Txt2 = new javax.swing.JTextField();
         label3 = new java.awt.Label();
         label4 = new java.awt.Label();
         Txt3 = new javax.swing.JTextField();
         label5 = new java.awt.Label();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        TF1 = new javax.swing.JTextField();
+        label6 = new java.awt.Label();
         Panel2 = new javax.swing.JPanel();
         label1 = new java.awt.Label();
         Menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        PanelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        button1.setLabel("Agregar Familia");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+        PanelPrincipal.add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 130, -1));
+        PanelPrincipal.add(Txt4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, 20));
+
+        jLabel1.setText("Nombre de la familia");
+        PanelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
+
+        Panel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                PanelComponentHidden(evt);
+            }
+        });
         Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Txt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Txt1ActionPerformed(evt);
+            }
+        });
+        Panel.add(Txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, -1));
 
         jButton1.setText("Agregar Producto");
         jButton1.setActionCommand("Agregar Producto");
@@ -57,14 +92,7 @@ public class GUIproyecto extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        Panel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
-
-        Txt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Txt1ActionPerformed(evt);
-            }
-        });
-        Panel.add(Txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, -1));
+        Panel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         label2.setText("Familia");
         Panel.add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, -1));
@@ -80,7 +108,11 @@ public class GUIproyecto extends javax.swing.JFrame {
         label5.setText("Cantidad en Inventario del Producto");
         Panel.add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, -1));
 
-        Panel.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 250, 20));
+        TF1.setEditable(false);
+        Panel.add(TF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 250, 20));
+
+        label6.setText("Codigo de su producto");
+        Panel.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
 
         Panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -96,6 +128,19 @@ public class GUIproyecto extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem1);
+
+        jMenuItem3.setText("Agregar Familias");
+        jMenuItem3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem3MouseClicked(evt);
+            }
+        });
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
 
         jMenuItem2.setText("Gestionar Inventario");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +164,11 @@ public class GUIproyecto extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(Panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,6 +177,11 @@ public class GUIproyecto extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(Panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -137,14 +192,17 @@ public class GUIproyecto extends javax.swing.JFrame {
         // TODO add your handling code here:
         Panel.setVisible(true);
         Panel2.setVisible(false);
+        PanelPrincipal.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         Panel.setVisible(false);
         Panel2.setVisible(true);
+        PanelPrincipal.setVisible(false);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         boolean a=true,b=true,c=true;
@@ -191,13 +249,46 @@ public class GUIproyecto extends javax.swing.JFrame {
         
         if(a && b && c){
             Producto pro=new Producto(nom, precio, unidades);
+            Txt1.setText("");Txt2.setText("");Txt3.setText("");
+            TF1.setText(String.valueOf(pro.getCodigo()));
             JOptionPane.showMessageDialog(GUIproyecto.this, "Producto creado correctamente");
+            proy.agregaralista(pro);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void Txt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt1ActionPerformed
         
     }//GEN-LAST:event_Txt1ActionPerformed
+
+    private void PanelComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_PanelComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PanelComponentHidden
+
+    private void jMenuItem3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3MouseClicked
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        Panel.setVisible(false);
+        Panel2.setVisible(false);
+        PanelPrincipal.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        boolean b=true;
+        if(Txt4.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(GUIproyecto.this, "Ingrese el nombre de la familia");
+            b=false;
+        }
+        
+        if(b){
+            String nombrefam=Txt4.getText();
+            Familias fami=new Familias(nombrefam);
+            proy.agregarfamilia(fami);
+            JOptionPane.showMessageDialog(GUIproyecto.this, "Familia creada correctamente");
+        }
+        Txt4.setText("");
+    }//GEN-LAST:event_button1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,23 +325,31 @@ public class GUIproyecto extends javax.swing.JFrame {
             }
         });
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar Menu;
     private javax.swing.JPanel Panel;
     private javax.swing.JPanel Panel2;
+    private javax.swing.JPanel PanelPrincipal;
+    private javax.swing.JTextField TF1;
     private javax.swing.JTextField Txt1;
     private javax.swing.JTextField Txt2;
     private javax.swing.JTextField Txt3;
+    private javax.swing.JTextField Txt4;
+    private java.awt.Button button1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private java.awt.Label label1;
     private java.awt.Label label2;
     private java.awt.Label label3;
     private java.awt.Label label4;
     private java.awt.Label label5;
+    private java.awt.Label label6;
     // End of variables declaration//GEN-END:variables
 }
