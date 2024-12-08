@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Vector;
@@ -22,6 +23,7 @@ public class GUIproyecto extends javax.swing.JFrame {
      * Creates new form GUIproyecto
      */
     DefaultComboBoxModel Model=null;
+    
     
     private ArrayList<Familias> list=new ArrayList();
     static ProyectoProgramacion1JeremytOsorto12441472 proy=new ProyectoProgramacion1JeremytOsorto12441472();
@@ -425,7 +427,6 @@ public class GUIproyecto extends javax.swing.JFrame {
                         pro.getFami().getName(), pro.getNombre(), pro.getPrecio(), pro.getCantidad(), pro.getCodigo()
                     
                     });
-                    
                 }
             }
             

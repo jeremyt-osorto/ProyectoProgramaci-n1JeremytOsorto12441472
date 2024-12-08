@@ -5,6 +5,7 @@
 package proyectoprogramacion1jeremytosorto12441472;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Arrays;
 /**
  *
  * @author DELL
@@ -14,6 +15,9 @@ public class ProyectoProgramacion1JeremytOsorto12441472 {
     static ArrayList <Producto> lista_productos=new ArrayList(); //ArrayList
     static ArrayList <Familias> lista_familias=new ArrayList();
     static Scanner lee=new Scanner(System.in);
+    static Producto[] pr= new Producto[10]; //Array
+    static Familias[][] lc=new Familias[10][10];//Matriz;
+    static int n=0, m=0,c=0;
     /**
      * @param args the command line arguments
      */
@@ -41,10 +45,18 @@ public class ProyectoProgramacion1JeremytOsorto12441472 {
     //Metodos no estaticos.
    public void agregaralista(Producto pro){
        lista_productos.add(pro);
+       for (int i=0; i<pr.length; i++){
+        pr[n]=pro;
+       }
    } 
    
    public void agregarfamilia(Familias fami){
        lista_familias.add(fami);
+       for (int i=0; i<lc.length;i++){
+           for (int b=0; b<lc.length; b++){
+               lc[m][c]=fami;
+           }
+       }
    }
    
    public ArrayList<Producto> listap(){
