@@ -16,7 +16,7 @@ public class Producto {
     private int cantidad;
     private int codigo;
     private Familias fami;
-    static Random ran=new Random();
+    static Random ran=new Random(); //Random
 
     public int getCodigo() {
         return codigo;
@@ -25,12 +25,26 @@ public class Producto {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
+    
+    private static int crearcodigo(){ //Metodo estático, Metodo que regresa un int;
+        int c=ran.nextInt(0,999999);
+        return c;
+    }
 
-    public Producto(String nombre, double precio, int cantidad) {
+    public Producto(String nombre, double precio, int cantidad, Familias fam) {
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
-        this.codigo= ran.nextInt(10000,99999);
+        this.codigo= crearcodigo(); 
+        this.fami= fam;
+    }
+
+    public Familias getFami() {
+        return fami;
+    }
+
+    public void setFami(Familias fami) {
+        this.fami = fami;
     }
 
     public String getNombre() {
@@ -59,9 +73,7 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "Producto{" + "nombre=" + nombre + ", precio=" + precio + ", cantidad=" + cantidad + '}';
+        return "Producto{" + "nombre=" + nombre + ", precio=" + precio + ", cantidad=" + cantidad + ", codigo=" + codigo + ", fami=" + fami + '}';
     }
-    
-    
     
 }

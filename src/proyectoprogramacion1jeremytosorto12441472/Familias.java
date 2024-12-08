@@ -17,7 +17,28 @@ public class Familias {
         this.cant_unid = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCant_unid() {
+        return cant_unid;
+    }
+
+    public void setCant_unid(int cant_unid) {
+        this.cant_unid = cant_unid;
+    }
+
     public Familias() {
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
     
 }

@@ -5,6 +5,12 @@
 package proyectoprogramacion1jeremytosorto12441472;
 
 import javax.swing.JOptionPane;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Vector;
 import proyectoprogramacion1jeremytosorto12441472.ProyectoProgramacion1JeremytOsorto12441472;
 
 /**
@@ -15,12 +21,22 @@ public class GUIproyecto extends javax.swing.JFrame {
     /**
      * Creates new form GUIproyecto
      */
+    DefaultComboBoxModel Model=null;
     
+    private ArrayList<Familias> list=new ArrayList();
     static ProyectoProgramacion1JeremytOsorto12441472 proy=new ProyectoProgramacion1JeremytOsorto12441472();
     public GUIproyecto() {
         initComponents();
         Panel.setVisible(false);
         Panel2.setVisible(false);
+        
+        Model=new DefaultComboBoxModel(list.toArray(new Familias[0]));
+        Combo.setModel(Model);
+        elecciones.setModel(Model);
+    }
+    
+    public GUIproyecto(ArrayList<Familias> list){
+        this.list=list;
     }
 
     /**
@@ -32,10 +48,6 @@ public class GUIproyecto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PanelPrincipal = new javax.swing.JPanel();
-        button1 = new java.awt.Button();
-        Txt4 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         Panel = new javax.swing.JPanel();
         Txt1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -47,29 +59,30 @@ public class GUIproyecto extends javax.swing.JFrame {
         label5 = new java.awt.Label();
         TF1 = new javax.swing.JTextField();
         label6 = new java.awt.Label();
+        Combo = new javax.swing.JComboBox<>();
         Panel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        elecciones = new javax.swing.JComboBox<>();
         label1 = new java.awt.Label();
+        N = new javax.swing.JTextField();
+        C = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Tabla = new javax.swing.JTable();
+        Bnombre = new javax.swing.JButton();
+        Bfamilia = new javax.swing.JButton();
+        Bcod = new javax.swing.JButton();
+        PanelPrincipal = new javax.swing.JPanel();
+        button1 = new java.awt.Button();
+        Txt4 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        PanelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        button1.setLabel("Agregar Familia");
-        button1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
-            }
-        });
-        PanelPrincipal.add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 130, -1));
-        PanelPrincipal.add(Txt4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, 20));
-
-        jLabel1.setText("Nombre de la familia");
-        PanelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         Panel.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
@@ -86,7 +99,6 @@ public class GUIproyecto extends javax.swing.JFrame {
         Panel.add(Txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, -1));
 
         jButton1.setText("Agregar Producto");
-        jButton1.setActionCommand("Agregar Producto");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -114,20 +126,109 @@ public class GUIproyecto extends javax.swing.JFrame {
         label6.setText("Codigo de su producto");
         Panel.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
 
+        Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Panel.add(Combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 250, -1));
+
         Panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        label1.setText("Estoy dentro del panel 2");
-        Panel2.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
+        jLabel2.setText("Buscar por Nombre");
+        Panel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
-        jMenu1.setText("Agregar Productos");
-
-        jMenuItem1.setText("Agregar Productos");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        elecciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        elecciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                eleccionesActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        Panel2.add(elecciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 190, 20));
+
+        label1.setText("Buscar por familia");
+        Panel2.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+        Panel2.add(N, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 140, 20));
+
+        C.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CActionPerformed(evt);
+            }
+        });
+        Panel2.add(C, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 140, 20));
+
+        jLabel3.setText("Buscar por código");
+        Panel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
+
+        Tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Familia", "Nombre", "Precio", "Unidades", "Código"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(Tabla);
+        if (Tabla.getColumnModel().getColumnCount() > 0) {
+            Tabla.getColumnModel().getColumn(0).setResizable(false);
+            Tabla.getColumnModel().getColumn(1).setResizable(false);
+            Tabla.getColumnModel().getColumn(2).setResizable(false);
+            Tabla.getColumnModel().getColumn(3).setResizable(false);
+            Tabla.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        Panel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 500, 190));
+
+        Bnombre.setText("Buscar por Nombre");
+        Bnombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BnombreActionPerformed(evt);
+            }
+        });
+        Panel2.add(Bnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 140, -1));
+
+        Bfamilia.setText("Buscar por familia");
+        Bfamilia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BfamiliaActionPerformed(evt);
+            }
+        });
+        Panel2.add(Bfamilia, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 190, -1));
+
+        Bcod.setText("Buscar por código");
+        Bcod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BcodActionPerformed(evt);
+            }
+        });
+        Panel2.add(Bcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 140, -1));
+
+        PanelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        button1.setLabel("Agregar Familia");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+        PanelPrincipal.add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 130, -1));
+        PanelPrincipal.add(Txt4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, 20));
+
+        jLabel1.setText("Nombre de la familia");
+        PanelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
+
+        jMenu1.setText("Menu");
 
         jMenuItem3.setText("Agregar Familias");
         jMenuItem3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -141,6 +242,14 @@ public class GUIproyecto extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem3);
+
+        jMenuItem1.setText("Agregar Productos");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Gestionar Inventario");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -158,31 +267,25 @@ public class GUIproyecto extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 0, 0)
                     .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(Panel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 0, 0)
                     .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(Panel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
         );
 
         pack();
@@ -245,12 +348,18 @@ public class GUIproyecto extends javax.swing.JFrame {
             c=false;
         }
         
+        
+        
         String nom=Txt1.getText();
+        Familias famselected= (Familias) Combo.getSelectedItem();
         
         if(a && b && c){
-            Producto pro=new Producto(nom, precio, unidades);
+            Producto pro=new Producto(nom, precio, unidades, famselected);
+            
             Txt1.setText("");Txt2.setText("");Txt3.setText("");
             TF1.setText(String.valueOf(pro.getCodigo()));
+            System.out.println(pro); //tipo de print ln.
+            System.out.printf("%2f", precio); //tipo print f%
             JOptionPane.showMessageDialog(GUIproyecto.this, "Producto creado correctamente");
             proy.agregaralista(pro);
         }
@@ -274,21 +383,116 @@ public class GUIproyecto extends javax.swing.JFrame {
         PanelPrincipal.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void eleccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleccionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eleccionesActionPerformed
+
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         boolean b=true;
         if(Txt4.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(GUIproyecto.this, "Ingrese el nombre de la familia");
             b=false;
         }
-        
+
         if(b){
             String nombrefam=Txt4.getText();
             Familias fami=new Familias(nombrefam);
             proy.agregarfamilia(fami);
+            Model.addElement(fami);
+
             JOptionPane.showMessageDialog(GUIproyecto.this, "Familia creada correctamente");
         }
         Txt4.setText("");
     }//GEN-LAST:event_button1ActionPerformed
+
+    private void CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CActionPerformed
+
+    private void BfamiliaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BfamiliaActionPerformed
+        Familias sec=(Familias) elecciones.getSelectedItem();
+        
+        if(sec!=null){
+            DefaultTableModel model1=(DefaultTableModel) Tabla.getModel();
+            model1.setRowCount(0);
+            
+            ArrayList<Producto> pr=proy.listap();
+            
+            for(Producto pro: pr){
+                if(pro.getFami().equals(sec)){
+                    model1.addRow(new Object[]{
+                    
+                        pro.getFami().getName(), pro.getNombre(), pro.getPrecio(), pro.getCantidad(), pro.getCodigo()
+                    
+                    });
+                    
+                }
+            }
+            
+        }
+        else {
+            JOptionPane.showMessageDialog(GUIproyecto.this, "Seleccione una familia");
+        }
+    }//GEN-LAST:event_BfamiliaActionPerformed
+
+    private void BnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BnombreActionPerformed
+        String nomb= N.getText().trim();
+        
+        if(!nomb.isEmpty()){
+            DefaultTableModel model1=(DefaultTableModel) Tabla.getModel();
+            model1.setRowCount(0);
+            
+            ArrayList<Producto> pr=proy.listap();
+            
+            for(Producto pro: pr){
+                if(pro.getNombre().equalsIgnoreCase(nomb)){
+                    model1.addRow(new Object[]{
+                    
+                        pro.getFami().getName(), pro.getNombre(), pro.getPrecio(), pro.getCantidad(), pro.getCodigo()
+                    
+                    });
+                    
+                }
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Ingrese un nombre para buscar");
+        }
+    }//GEN-LAST:event_BnombreActionPerformed
+
+    private void BcodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BcodActionPerformed
+        String d= C.getText().trim();
+        
+        
+        if(!d.isEmpty()){
+            
+            try{
+                int Cod=Integer.parseInt(d);
+
+                DefaultTableModel model1=(DefaultTableModel) Tabla.getModel();
+                model1.setRowCount(0);
+
+                ArrayList<Producto> pr=proy.listap();
+
+                for(Producto pro: pr){
+                    if(pro.getCodigo()==Cod){
+                        model1.addRow(new Object[]{
+
+                            pro.getFami().getName(), pro.getNombre(), pro.getPrecio(), pro.getCantidad(), pro.getCodigo()
+
+                        });
+
+                    }
+                }
+            }
+            catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(this, "Ingrese el código");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Ingrese un código para buscar");
+        }
+    }//GEN-LAST:event_BcodActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,22 +533,33 @@ public class GUIproyecto extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Bcod;
+    private javax.swing.JButton Bfamilia;
+    private javax.swing.JButton Bnombre;
+    private javax.swing.JTextField C;
+    private javax.swing.JComboBox<String> Combo;
     private javax.swing.JMenuBar Menu;
+    private javax.swing.JTextField N;
     private javax.swing.JPanel Panel;
     private javax.swing.JPanel Panel2;
     private javax.swing.JPanel PanelPrincipal;
     private javax.swing.JTextField TF1;
+    private javax.swing.JTable Tabla;
     private javax.swing.JTextField Txt1;
     private javax.swing.JTextField Txt2;
     private javax.swing.JTextField Txt3;
     private javax.swing.JTextField Txt4;
     private java.awt.Button button1;
+    private javax.swing.JComboBox<String> elecciones;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JScrollPane jScrollPane2;
     private java.awt.Label label1;
     private java.awt.Label label2;
     private java.awt.Label label3;
