@@ -310,7 +310,7 @@ public class GUIproyecto extends javax.swing.JFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        boolean a=true,b=true,c=true;
+        boolean a=true,b=true,c=true, f=true;
         if (Txt1.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(GUIproyecto.this, "Ingrese un nombre");
             a=false;
@@ -354,8 +354,12 @@ public class GUIproyecto extends javax.swing.JFrame {
         
         String nom=Txt1.getText();
         Familias famselected= (Familias) Combo.getSelectedItem();
+        if(Combo.getItemCount()==0){
+            JOptionPane.showMessageDialog(this, "Debe crear una familia");
+            f=false;
+        }
         
-        if(a && b && c){
+        if(a && b && c && f){
             Producto pro=new Producto(nom, precio, unidades, famselected);
             
             Txt1.setText("");Txt2.setText("");Txt3.setText("");
